@@ -149,7 +149,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  capistrano
-  capistrano-ext
+  capistrano (= 2.13.5)
+  capistrano-ext (= 1.2.1)
   mobilize-ssh (= 1.0.1)
   whenever (= 0.7.0)
