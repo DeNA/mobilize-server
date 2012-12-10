@@ -1,3 +1,5 @@
-config
+config/mobilize
+config/deploy
+config/deploy.rb
 tmp
 log

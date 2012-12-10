@@ -1,6 +1,6 @@
 # Use this file to easily define all of your cron jobs.
 #
-set :output, "/app/dir/schedule.log" #change this to match your destination folder
+set :output, ":path/log/schedule.log"
 #
 job_type :rake, "cd :path && MOBILIZE_ENV=:environment bundle exec rake :task --silent :output"
 #make sure workers stay current and available
