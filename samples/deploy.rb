@@ -1,5 +1,5 @@
 require 'capistrano/ext/multistage'
-set :gateway, "#{(ENV['LOGNAME']=='sagar' ? 'smehta' : ENV['LOGNAME'])}@login.milp.ngmoco.com:50001"
+#set :gateway, "gateway_user@gateway_server.com"
 set :application, "mobilize-server"
 set :repository,  "."
 set :user, 'deploy'

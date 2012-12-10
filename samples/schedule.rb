@@ -1,20 +1,14 @@
 # Use this file to easily define all of your cron jobs.
 #
-# It's helpful, but not entirely necessary to understand cron before proceeding.
-# http://en.wikipedia.org/wiki/Cron
+set :output, "/app/dir/schedule.log" #change this to match your destination folder
+#
+job_type :rake, "cd :path && MOBILIZE_ENV=:environment bundle exec rake :task --silent :output"
+#make sure workers stay current and available
+every 10.minutes do
+  rake "mobilize:kill_idle_stale_workers"
+  rake "mobilize:prep_workers"
+end
+#
 
-# Example:
-#
- set :output, "/var/apps/schedule.log"
-#
-# every 2.hours do
-#   command "/usr/bin/some_great_command"
-#   runner "MyModel.some_method"
-#   rake "some:great:rake:task"
-# end
-#
-# every 4.days do
-#   runner "AnotherModel.prune_old_records"
-# end
-
+# this file uses the whenever gem to generate cron jobs
 # Learn more: http://github.com/javan/whenever
