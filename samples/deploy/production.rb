@@ -13,7 +13,7 @@ end
 namespace :cron do
   desc "Update crontab"
   task :crontab, :roles => :app do
-    run "cd #{current_release} && /usr/bin/whenever --update-crontab #{application}"
+    run "cd #{current_release} && bundle exec whenever --update-crontab #{application}"
   end
 end
 
