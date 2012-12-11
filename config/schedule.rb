@@ -5,8 +5,8 @@ set :output, "#{path}/log/schedule.log"
 job_type :rake, "cd #{path} && MOBILIZE_ENV=:environment bundle exec rake :task --silent :output"
 #make sure workers stay current and available
 every 10.minutes do
-  rake "mobilize:kill_idle_stale_workers"
-  rake "mobilize:prep_workers"
+  rake "mobilize_base:kill_idle_and_stale_workers"
+  rake "mobilize_base:prep_workers"
 end
 #
 
