@@ -1,2 +1,2 @@
-require 'mobilize-base/rakes'
-require 'mobilize-ssh/rakes'
+require 'mobilize-base/tasks'
+require 'mobilize-ssh/tasks'
