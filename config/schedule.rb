@@ -16,7 +16,7 @@ every 10.minutes do
   rake "mobilize_base:kill_idle_and_stale_workers"
   rake "mobilize_base:prep_workers"
   #make sure Jobtracker is alive
-  rake "mobilize_base:restart!"
+  rake "mobilize_base:restart"
 end
 
 #
