@@ -1,7 +1,7 @@
 Mobilize-Server
 ============
 
-Mobilize-Server includes deployment scripts and scheduling via whenever.
+Mobilize-Server includes deployment scripts via Capistrano and scheduling via whenever.
 * Deploy your selected mobilize configuration and modules to your server
 
 Table Of Contents
@@ -42,6 +42,9 @@ Mobilize-server expects your config files to be in the config/mobilize
 folder relative to the project root (where the Capfile, Rakefile etc.
 live).
 
+Sample deploy and schedule scripts are stored in the samples folder.
+These should be copied into your config folder and customized there.
+
 <a name='section_Configure_Capistrano'></a>
 Capistrano
 --------------
@@ -76,6 +79,7 @@ files.
 
 * config.populate_dirs
   * uploads the config folder and all its subdirectories to the remote.
+  * Creates tmp and log files in the release folder.
 
 * whenever.update_crontab
   * updates the crontab with scripts defined in config/schedule.rb
@@ -91,10 +95,13 @@ Whenever
 The repo ships with the below whenever scripts to keep your Mobilize server
 running smoothly. The scripts invoke mobilize_base rake tasks.
 
-Every 10 minutes:
+Every 5 minutes:
 
 * kill_idle_and_stale_workers: Any workers who started prior to the
 latest deploy are killed, unless they are processing a job currently.
+
+* prep_workers: ensures the appropriate number of workers are working,
+and kills any over the limit, idle ones first.
 
 * start: ensures the Jobtracker is running.
 
@@ -102,11 +109,28 @@ Every 1 hour:
 
 * kill_idle_workers: ensures that idle workers are killed.
 
-* prep_workers: ensures the appropriate number of workers are working,
-and kills any over the limit, idle ones first.
-
 * restart: restarts the jobtracker. This is to ensure that the process
 is always live, fresh, and not consuming too many resources.
+
+<a name='section_Deploy'></a>
+Deploy
+---------
+
+Deployment is done through Capistrano.
+
+<a name='section_Deploy_Commands'></a>
+Commands
+---------
+
+* cap `<environment>` deploy:setup 
+  * this will set up the environment on your target machine with all
+relevant directories. By default these are owned by root for some
+reason, so you'll need to go in there and change permissions to whatever
+user you're deploying as.
+
+* cap `<environment>` deploy
+  * this is the deploy proper, that copies up all relevant files, kicks
+off the crontab etc.
 
 <a name='section_Administration'></a>
 Administration
