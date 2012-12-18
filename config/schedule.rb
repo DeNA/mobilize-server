@@ -11,11 +11,32 @@ set :output, {:standard => nil}
 job_type :rake, "source /usr/local/rvm/environments/ruby-1.9.3-p327@mobilize-server && cd #{path} && " +
                 "MOBILIZE_ENV=:environment bundle exec rake :task --silent :output"
 
-every 10.minutes do
-  #make sure workers stay current and available
+#every 10 minutes
+
+every '0,10,20,30,40,50 * * * *' do
+  #make sure workers stay current
   rake "mobilize_base:kill_idle_and_stale_workers"
+end
+
+every '16,26,36,46,56 * * * *' do
+  #make Jobtracker is alive
+  rake "mobilize_base:start"
+end
+
+#every hour
+
+every '2 * * * *' do
+  #make sure workers don't go over memory limit
+  rake "mobilize_base:kill_idle_workers"
+end
+
+every '4 * * * *' do
+  #make sure there are enough workers
   rake "mobilize_base:prep_workers"
-  #make sure Jobtracker is alive
+end
+
+every '6 * * * *' do
+  #make Jobtracker is fresh and under memory limit
   rake "mobilize_base:restart"
 end
 

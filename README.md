@@ -10,9 +10,14 @@ Table Of Contents
 * [Configure](#section_Configure)
   * [Mobilize Modules](#section_Configure_Mobilize_Modules)
   * [Capistrano](#section_Configure_Capistrano)
+    * [Tasks](#Section_Configure_Capistrano_Tasks)
   * [Whenever](#section_Configure_Whenever)
 * [Deploy](#section_Deploy)
   * [Commands](#section_Deploy_Commands)
+* [Administration](#Section_Administration)
+  * [Console](#Section_Administration_Console)
+  * [Log](#Section_Administration_Log)
+  * [Resque](#Section_Administration_Resque)
 * [Meta](#section_Meta)
 * [Author](#section_Author)
 
@@ -31,79 +36,137 @@ Configure
 
 Make sure you go through the configuration options for any Mobilize
 modules you are interested in including in your instance. For reference,
-please see [mobilize_base][mobilize_base], [mobilize_ssh][mobilize_ssh],
-[mobilize_hadoop][mobilize_hadoop].
+please see [mobilize-base][mobilize-base], [mobilize-ssh][mobilize-ssh].
 
 Mobilize-server expects your config files to be in the config/mobilize
 folder relative to the project root (where the Capfile, Rakefile etc.
 live).
 
 <a name='section_Configure_Capistrano'></a>
+Capistrano
+--------------
 
-The repo ships with a deploy.rb and deploy/production.rb and
-deploy/staging.rb scripts, which should be copied into you config folder
-as well.
+Capistrano has many awesome options, of which the following are
+included in this package:
 
-Capistrano has many awesome options etc. but to get up and running you
-need only to define the server you want to deploy to, with a gateway
-server if you have one. These are in the first couple of lines in the
-production/staging.rb scripts.
+* gateway -- This repo assumes no gateway, but leaves the option
+available for uncommenting.
+
+* rvm -- This repo uses system RVM and allows you to specify a gemset.
+It's recommended that you create and specify a gemset so you can be sure
+your ruby and gems are the version as you expect.
+
+* keep_releases: 5 releases are kept in your release directory.
+
+* multistage -- the repo ships with a staging and production script.
+In this repo, both are identical with the exception of the host. These
+are specified in the config/deploy/`<environment>`.rb files.
+
+<a name='section_Configure_Capistrano_Tasks'></a>
+Tasks
+------------
+
+The deploy.rb script itself defines these tasks, which are executed in
+the "after update" step as specified in the deploy/`<environment>`.rb
+files.
+
+* bundler.bundle_new_release
+  * runs bundle install on the project folder without the "test" and
+"development" group gems.
+
+* config.populate_dirs
+  * uploads the config folder and all its subdirectories to the remote.
+
+* whenever.update_crontab
+  * updates the crontab with scripts defined in config/schedule.rb
+
+* resque.restart_resque_web
+  * restarts resque-web on the port specified in
+resque.yml/`<environment>`/web_port.
 
 <a name='section_Configure_Whenever'></a>
+Whenever
+---------
 
-The repo ships with a whenever script to keep your Mobilize server
-running smoothly. It does these things:
+The repo ships with the below whenever scripts to keep your Mobilize server
+running smoothly. The scripts invoke mobilize_base rake tasks.
 
-* every hour, it checks workers to be sure they are 
+Every 10 minutes:
 
-<a name='section_Start'></a>
-Start
------
+* kill_idle_and_stale_workers: Any workers who started prior to the
+latest deploy are killed, unless they are processing a job currently.
 
-<a name='section_Start_Create_Job'></a>
-### Create Job
+* start: ensures the Jobtracker is running.
 
-* For mobilize-ssh, the following task is available:
-  * ssh.run `<node_alias>,<command>,*<gsheet_full_paths>`, which reads
-all gsheets, copies them to a temporary folder on the selected node, and
-runs the command inside that folder. 
-  * The test uses `ssh.run "test_node", "ruby code.rb", "Runner_mobilize(test)/code.rb", "Runner_mobilize(test)/code.sh"`
+Every 1 hour:
 
-<a name='section_Start_Run_Test'></a>
-### Run Test
+* kill_idle_workers: ensures that idle workers are killed.
 
-To run tests, you will need to 
+* prep_workers: ensures the appropriate number of workers are working,
+and kills any over the limit, idle ones first.
 
-1) go through the [mobilize-base][mobilize-base] test first
+* restart: restarts the jobtracker. This is to ensure that the process
+is always live, fresh, and not consuming too many resources.
 
-2) clone the mobilize-ssh repository 
+<a name='section_Administration'></a>
+Administration
+--------------
 
-From the project folder, run
+<a name='section_Administration_Console'></a>
+Console
+--------------
+The current mobilize-server console uses bundle console:
+  $ (cd `<release_path>` && MOBILIZE_ENV=`<environment>` bundle console)
 
-3) $ rake mobilize_ssh:setup
+Once inside the console, use irb Mobilize to get into the proper
+namespace:
 
-Copy over the config files from the mobilize-base project into the
-config dir, and populate the values in the ssh.yml file, esp. the
-test_node item.
+irb> irb Mobilize
 
-You should also copy the ssh private key you wish to use into your
-desired path (by default: config/mobilize/ssh_private.key), and make sure it is referenced in ssh.yml
+* Create User:
+  * irb> User.find_or_create_by_name(<username>)
 
-3) $ rake test
+* Start Jobtracker:
+  * irb> Jobtracker.start
 
-This will populate your test Runner from mobilize-base with a sample ssh job.
+The Jobtracker will create your Runner and give edit permissions to the admins
+and owner. From there it's a matter of updating your Runner from Google
+Docs.
 
-The purpose of the test will be to deploy two code files, have the first
-execute the second, which is a "tail /var/log/syslog" command, and write the resulting output to a gsheet.
+<a name='section_Administration_Log'></a>
+Log
+--------------
+
+Watching the logs is easy enough:
+
+$ tail -f `<release_dir>`/log/mobilize-resque-`<environment>`.log
+
+As the name suggests, this outputs logs from all Resque processes. If
+you don't have any Jobs due, you will see the Jobtracker checking
+Runners to see if they are ready to be queued, according to the
+runner_read_freq specified in jobtracker.yml.
+
+<a name='section_Administration_Resque'></a>
+Resque
+--------------
+
+The resque-web UI is accessible from `<host>:<web_port>` as defined in
+resque.yml. You can run 
+
+$ rake mobilize_base:resque_web
+
+to restart the web UI if it's not running.
+
+Much as you would expect, the resque web UI keeps track of all processes
+currently running.
 
 <a name='section_Meta'></a>
 Meta
 ----
 
-* Code: `git clone git://github.com/ngmoco/mobilize-ssh.git`
-* Home: <https://github.com/ngmoco/mobilize-ssh>
-* Bugs: <https://github.com/ngmoco/mobilize-ssh/issues>
-* Gems: <http://rubygems.org/gems/mobilize-ssh>
+* Code: `git clone git://github.com/ngmoco/mobilize-server.git`
+* Home: <https://github.com/ngmoco/mobilize-server>
+* Bugs: <https://github.com/ngmoco/mobilize-server/issues>
 
 <a name='section_Author'></a>
 Author
@@ -112,4 +175,4 @@ Author
 Cassio Paes-Leme :: cpaesleme@ngmoco.com :: @cpaesleme
 
 [mobilize-base]: https://github.com/ngmoco/mobilize-base
-
+[mobilize-ssh]: https://github.com/ngmoco/mobilize-ssh
