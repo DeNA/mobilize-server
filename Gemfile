@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'mobilize-ssh', "1.0.74"
+gem 'mobilize-ssh', "1.0.84"
 gem 'whenever', '0.7.0', :require => false
 group :test do
 
