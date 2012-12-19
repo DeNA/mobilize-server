@@ -23,7 +23,9 @@ every '1,6,11,16,21,26,31,36,41,46,51,56 * * * *' do
   rake "mobilize_base:start"
 end
 
-every '2,7,12,17,22,27,32,37,42,47,52,57 * * * *' do
+  #2 min block reserved for kill idle workers
+
+every '3,8,13,18,23,28,33,38,43,48,53,58 * * * *' do
   #make sure there are enough workers
   rake "mobilize_base:prep_workers"
 end
