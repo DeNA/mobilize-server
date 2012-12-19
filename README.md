@@ -10,14 +10,14 @@ Table Of Contents
 * [Configure](#section_Configure)
   * [Mobilize Modules](#section_Configure_Mobilize_Modules)
   * [Capistrano](#section_Configure_Capistrano)
-    * [Tasks](#Section_Configure_Capistrano_Tasks)
+    * [Tasks](#section_Configure_Capistrano_Tasks)
   * [Whenever](#section_Configure_Whenever)
 * [Deploy](#section_Deploy)
   * [Commands](#section_Deploy_Commands)
-* [Administration](#Section_Administration)
-  * [Console](#Section_Administration_Console)
-  * [Log](#Section_Administration_Log)
-  * [Resque](#Section_Administration_Resque)
+* [Administration](#section_Administration)
+  * [Console](#section_Administration_Console)
+  * [Log](#section_Administration_Log)
+  * [Resque](#section_Administration_Resque)
 * [Meta](#section_Meta)
 * [Author](#section_Author)
 
@@ -25,8 +25,8 @@ Table Of Contents
 Overview
 -----------
 
-* Mobilize-ssh adds capistrano deploys and whenever cron scripts to
-Mobilize.
+* mobilize-server adds capistrano deploys, whenever cron support, and
+general usability to mobilize gems.
 
 <a name='section_Configure'></a>
 Configure
