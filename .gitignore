@@ -1,6 +1,27 @@
+<<<<<<< HEAD
 config/mobilize
 config/deploy
 config/deploy.rb
 config/schedule.rb
 tmp
 log
+=======
+*.gem
+*.rbc
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
+>>>>>>> 5a9c5b4b0cfb4ceb92c08ad373712efe8c109c4f
