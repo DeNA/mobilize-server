@@ -36,7 +36,8 @@ Configure
 
 Make sure you go through the configuration options for any Mobilize
 modules you are interested in including in your instance. For reference,
-please see [mobilize-base][mobilize-base], [mobilize-ssh][mobilize-ssh].
+please see [mobilize-base][mobilize-base], [mobilize-ssh][mobilize-ssh],
+[mobilize-hdfs][mobilize-hdfs].
 
 Mobilize-server expects your config files to be in the config/mobilize
 folder relative to the project root (where the Capfile, Rakefile etc.
@@ -200,3 +201,4 @@ Cassio Paes-Leme :: cpaesleme@ngmoco.com :: @cpaesleme
 
 [mobilize-base]: https://github.com/ngmoco/mobilize-base
 [mobilize-ssh]: https://github.com/ngmoco/mobilize-ssh
+[mobilize-hdfs]: https://github.com/ngmoco/mobilize-hdfs
