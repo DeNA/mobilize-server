@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'mobilize-hdfs', "1.0.0"
+gem 'mobilize-hdfs', "1.0.01"
+gem 'mobilize-nozzle', :git=>"git@github.ngmoco.com:Ngpipes/mobilize-nozzle.git"
 gem 'whenever', '0.7.0', :require => false
 group :test do
 
