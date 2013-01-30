@@ -1,6 +1,7 @@
 GIT
   remote: git@github.ngmoco.com:Ngpipes/mobilize-nozzle.git
-  revision: 4b543711ae6c88296394e23a08cb60b189bf39a6
+  revision: 6f9149b0ed4e3b34bfd14ed3fe05dcf233cc4ad1
+  ref: 6f9149b0ed4e3b34bfd14ed3fe05dcf233cc4ad1
   specs:
     mobilize-nozzle (1.0.04)
       mechanize (= 2.0)
