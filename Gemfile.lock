@@ -1,11 +1,11 @@
 GIT
   remote: git@github.ngmoco.com:Ngpipes/mobilize-nozzle.git
-  revision: 6f9149b0ed4e3b34bfd14ed3fe05dcf233cc4ad1
-  ref: 6f9149b0ed4e3b34bfd14ed3fe05dcf233cc4ad1
+  revision: 7d7051fcda9bec4403bb8bd570c01c30db15d02b
+  ref: 7d7051fcda9bec4403bb8bd570c01c30db15d02b
   specs:
     mobilize-nozzle (1.0.04)
       mechanize (= 2.0)
-      mobilize-base (= 1.1.04)
+      mobilize-base (= 1.1.05)
 
 GEM
   remote: https://rubygems.org/
@@ -45,7 +45,7 @@ GEM
       capistrano (>= 1.0.0)
     chronic (0.6.7)
     erubis (2.7.0)
-    faraday (0.8.4)
+    faraday (0.8.5)
       multipart-post (~> 1.1)
     google_drive (0.3.2)
       nokogiri (>= 1.4.4, != 1.5.2, != 1.5.1)
@@ -66,8 +66,8 @@ GEM
       net-http-persistent (~> 1.8)
       nokogiri (~> 1.4)
       webrobots (~> 0.0, >= 0.0.9)
-    mime-types (1.19)
-    mobilize-base (1.1.04)
+    mime-types (1.20.1)
+    mobilize-base (1.1.05)
       actionmailer (= 3.1.1)
       bson (= 1.6.1)
       bson_ext (= 1.6.1)
@@ -78,16 +78,16 @@ GEM
       rake
       redis (~> 3.0.0)
       resque (= 1.21.0)
-    mobilize-hdfs (1.0.04)
-      mobilize-ssh (= 1.1.04)
-    mobilize-ssh (1.1.04)
-      mobilize-base (= 1.1.04)
+    mobilize-hdfs (1.0.05)
+      mobilize-ssh (= 1.1.05)
+    mobilize-ssh (1.1.05)
+      mobilize-base (= 1.1.05)
       net-scp
       net-ssh
       net-ssh-gateway
     mongo (1.6.1)
       bson (~> 1.6.1)
-    mongoid (3.0.19)
+    mongoid (3.0.21)
       activemodel (~> 3.1)
       moped (~> 1.2)
       origin (~> 1.0)
@@ -164,7 +164,7 @@ PLATFORMS
 DEPENDENCIES
   capistrano (= 2.13.5)
   capistrano-ext (= 1.2.1)
-  mobilize-hdfs (= 1.0.04)
+  mobilize-hdfs (= 1.0.05)
   mobilize-nozzle!
   rvm-capistrano (= 1.2.7)
   whenever (= 0.7.0)
