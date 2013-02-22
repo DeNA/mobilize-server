@@ -37,7 +37,7 @@ Configure
 Make sure you go through the configuration options for any Mobilize
 modules you are interested in including in your instance. For reference,
 please see [mobilize-base][mobilize-base], [mobilize-ssh][mobilize-ssh],
-[mobilize-hdfs][mobilize-hdfs].
+[mobilize-hdfs][mobilize-hdfs], [mobilize-hive][mobilize-hive].
 
 Mobilize-server expects your config files to be in the config/mobilize
 folder relative to the project root (where the Capfile, Rakefile etc.
@@ -189,16 +189,17 @@ currently running.
 Meta
 ----
 
-* Code: `git clone git://github.com/ngmoco/mobilize-server.git`
-* Home: <https://github.com/ngmoco/mobilize-server>
-* Bugs: <https://github.com/ngmoco/mobilize-server/issues>
+* Code: `git clone git://github.com/dena/mobilize-server.git`
+* Home: <https://github.com/dena/mobilize-server>
+* Bugs: <https://github.com/dena/mobilize-server/issues>
 
 <a name='section_Author'></a>
 Author
 ------
 
-Cassio Paes-Leme :: cpaesleme@ngmoco.com :: @cpaesleme
+Cassio Paes-Leme :: cpaesleme@dena.com :: @cpaesleme
 
-[mobilize-base]: https://github.com/ngmoco/mobilize-base
-[mobilize-ssh]: https://github.com/ngmoco/mobilize-ssh
-[mobilize-hdfs]: https://github.com/ngmoco/mobilize-hdfs
+[mobilize-base]: https://github.com/dena/mobilize-base
+[mobilize-ssh]: https://github.com/dena/mobilize-ssh
+[mobilize-hdfs]: https://github.com/dena/mobilize-hdfs
+[mobilize-hive]: https://github.com/dena/mobilize-hive
