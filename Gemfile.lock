@@ -53,7 +53,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.21)
-    mobilize-base (1.1.07)
+    mobilize-base (1.1.08)
       actionmailer (= 3.1.1)
       bson (= 1.6.1)
       bson_ext (= 1.6.1)
@@ -64,12 +64,12 @@ GEM
       rake
       redis (~> 3.0.0)
       resque (= 1.21.0)
-    mobilize-hdfs (1.0.07)
-      mobilize-ssh (= 1.1.07)
-    mobilize-hive (1.0.07)
-      mobilize-hdfs (= 1.0.07)
-    mobilize-ssh (1.1.07)
-      mobilize-base (= 1.1.07)
+    mobilize-hdfs (1.0.08)
+      mobilize-ssh (= 1.1.08)
+    mobilize-hive (1.0.08)
+      mobilize-hdfs (= 1.0.08)
+    mobilize-ssh (1.1.08)
+      mobilize-base (= 1.1.08)
       net-scp
       net-ssh
       net-ssh-gateway
@@ -151,6 +151,6 @@ PLATFORMS
 DEPENDENCIES
   capistrano (= 2.13.5)
   capistrano-ext (= 1.2.1)
-  mobilize-hive (= 1.0.07)
+  mobilize-hive (= 1.0.08)
   rvm-capistrano (= 1.2.7)
   whenever (= 0.7.0)
