@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'mobilize-hdfs', "1.0.0"
+gem 'mobilize-hive', "1.0.07"
 gem 'whenever', '0.7.0', :require => false
 group :test do
 
