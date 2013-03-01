@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'mobilize-hive', "1.0.08"
+gem 'mobilize-hive', "1.0.09"
 gem 'whenever', '0.7.0', :require => false
 group :test do
 
