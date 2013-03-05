@@ -80,7 +80,7 @@ GEM
       resque (= 1.21.0)
     mobilize-hdfs (1.0.10)
       mobilize-ssh (= 1.1.10)
-    mobilize-hive (1.0.10)
+    mobilize-hive (1.0.11)
       mobilize-hdfs (= 1.0.10)
     mobilize-ssh (1.1.10)
       mobilize-base (= 1.1.10)
@@ -168,7 +168,7 @@ PLATFORMS
 DEPENDENCIES
   capistrano (= 2.13.5)
   capistrano-ext (= 1.2.1)
-  mobilize-hive (= 1.0.10)
+  mobilize-hive (= 1.0.11)
   mobilize-nozzle!
   rvm-capistrano (= 1.2.7)
   whenever (= 0.7.0)
