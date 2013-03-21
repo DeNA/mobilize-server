@@ -1,11 +1,11 @@
 GIT
   remote: git@github.ngmoco.com:Ngpipes/mobilize-nozzle.git
-  revision: 876dd4c43c61ef2cce28afd08c40bc606ef4acca
-  ref: 876dd4c
+  revision: 80ed2aee87d39546ef0fdd01720d374cb4960654
+  ref: 80ed2a
   specs:
     mobilize-nozzle (1.0.08)
       mechanize (= 2.0)
-      mobilize-base (= 1.1.10)
+      mobilize-base (= 1.2)
 
 GEM
   remote: https://rubygems.org/
@@ -55,19 +55,21 @@ GEM
     hike (1.2.1)
     httpauth (0.2.0)
     i18n (0.6.4)
-    jwt (0.1.5)
-      multi_json (>= 1.0)
+    jwt (0.1.8)
+      multi_json (>= 1.5)
     mail (2.3.3)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mechanize (2.0)
       net-http-digest_auth (~> 1.1, >= 1.1.1)
+      net-http-digest_auth (~> 1.1, >= 1.1.1)
       net-http-persistent (~> 1.8)
       nokogiri (~> 1.4)
       webrobots (~> 0.0, >= 0.0.9)
+      webrobots (~> 0.0, >= 0.0.9)
     mime-types (1.21)
-    mobilize-base (1.1.10)
+    mobilize-base (1.2)
       actionmailer (= 3.1.1)
       bson (= 1.6.1)
       bson_ext (= 1.6.1)
@@ -78,12 +80,12 @@ GEM
       rake
       redis (~> 3.0.0)
       resque (= 1.21.0)
-    mobilize-hdfs (1.0.10)
-      mobilize-ssh (= 1.1.10)
-    mobilize-hive (1.0.11)
-      mobilize-hdfs (= 1.0.10)
-    mobilize-ssh (1.1.10)
-      mobilize-base (= 1.1.10)
+    mobilize-hdfs (1.2)
+      mobilize-ssh (= 1.2)
+    mobilize-hive (1.2)
+      mobilize-hdfs (= 1.2)
+    mobilize-ssh (1.2)
+      mobilize-base (= 1.2)
       net-scp
       net-ssh
       net-ssh-gateway
@@ -107,7 +109,7 @@ GEM
     net-ssh (2.6.3)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
-    nokogiri (1.5.6)
+    nokogiri (1.5.9)
     oauth (0.4.7)
     oauth2 (0.9.1)
       faraday (~> 0.8)
@@ -127,7 +129,7 @@ GEM
       rack (>= 0.4)
     rack-mount (0.8.3)
       rack (>= 1.0.0)
-    rack-protection (1.4.0)
+    rack-protection (1.5.0)
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -150,14 +152,14 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    tilt (1.3.4)
+    tilt (1.3.6)
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.36)
+    tzinfo (0.3.37)
     vegas (0.1.11)
       rack (>= 1.0.0)
-    webrobots (0.1.0)
+    webrobots (0.1.1)
     whenever (0.7.0)
       activesupport (>= 2.3.4)
       chronic (~> 0.6.3)
@@ -168,7 +170,7 @@ PLATFORMS
 DEPENDENCIES
   capistrano (= 2.13.5)
   capistrano-ext (= 1.2.1)
-  mobilize-hive (= 1.0.11)
+  mobilize-hive (= 1.2)
   mobilize-nozzle!
   rvm-capistrano (= 1.2.7)
   whenever (= 0.7.0)
