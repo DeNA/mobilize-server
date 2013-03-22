@@ -7,7 +7,7 @@ set :application, "mobilize-server"
 set :repository,  "git@github.ngmoco.com:Ngpipes/mobilize-server.git"
 set :user, 'mobilize'
 set :rvm_type, :system #change this if you're not using system rvm
-set :rvm_ruby_string, 'ruby-1.9.3-p327@mobilize-server' #update with your favorite gemset
+set :rvm_ruby_string, 'ruby-2.0.0-rc1@mobilize-server' #update with your favorite gemset
 set :keep_releases, 5
 set :deploy_via, :copy
 set :copy_strategy, :export
@@ -61,6 +61,6 @@ namespace :resque do
   desc "Restart resque-web"
   task :restart_resque_web do
     #environment is set as stage
-    run "source /usr/local/rvm/environments/ruby-1.9.3-p327@mobilize-server && cd #{current_release} && MOBILIZE_ENV=#{stage} bundle exec rake mobilize_base:resque_web"
+    run "source /usr/local/rvm/environments/ruby-2.0.0-rc1@mobilize-server && cd #{current_release} && MOBILIZE_ENV=#{stage} bundle exec rake mobilize_base:resque_web"
   end
 end
