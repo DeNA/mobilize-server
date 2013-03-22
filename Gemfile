@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'mobilize-hive', "1.22"
+gem 'mobilize-hive', "1.23"
+gem 'mobilize-nozzle', :git=>"git@github.ngmoco.com:Ngpipes/mobilize-nozzle.git", :ref=>"0502b40"
 gem 'whenever', '0.7.0', :require => false
 group :test do
 
