@@ -8,7 +8,7 @@
 set :output, {:standard => nil}
 
 #prefix with rvm env --path -- <ruby version>@<gemset name>  && cd path && bundle exec rake
-job_type :rake, "source /usr/local/rvm/environments/ruby-2.0.0-rc1@mobilize-server && cd #{path} && " +
+job_type :rake, "source /usr/local/rvm/environments/ruby-1.9.3-p374@mobilize-server && cd #{path} && " +
                 "MOBILIZE_ENV=:environment bundle exec rake :task --silent :output"
 
 #every 5 minutes
