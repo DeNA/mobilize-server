@@ -1,11 +1,11 @@
 GIT
   remote: git@github.ngmoco.com:Ngpipes/mobilize-nozzle.git
-  revision: fdaf25a8ba0ed22e9a2e12b3195ac2733d14b29b
-  ref: fdaf25a
+  revision: e33a896a9810fcae14a8e1e46631e5efcaa4a0a2
+  ref: e33a896
   specs:
-    mobilize-nozzle (1.24)
+    mobilize-nozzle (1.25)
       mechanize (= 2.6.0)
-      mobilize-base (= 1.24)
+      mobilize-base (= 1.25)
 
 GEM
   remote: https://rubygems.org/
@@ -47,7 +47,7 @@ GEM
     domain_name (0.5.9)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
-    faraday (0.8.6)
+    faraday (0.8.7)
       multipart-post (~> 1.1)
     google_drive (0.3.2)
       nokogiri (>= 1.4.4, != 1.5.2, != 1.5.1)
@@ -72,7 +72,7 @@ GEM
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (>= 0.0.9, < 0.2)
     mime-types (1.21)
-    mobilize-base (1.24)
+    mobilize-base (1.25)
       actionmailer (= 3.1.1)
       bson (= 1.6.1)
       bson_ext (= 1.6.1)
@@ -82,12 +82,12 @@ GEM
       popen4 (= 0.1.2)
       rake
       resque (= 1.24.0)
-    mobilize-hdfs (1.24)
-      mobilize-ssh (= 1.24)
-    mobilize-hive (1.24)
-      mobilize-hdfs (= 1.24)
-    mobilize-ssh (1.24)
-      mobilize-base (= 1.24)
+    mobilize-hdfs (1.25)
+      mobilize-ssh (= 1.25)
+    mobilize-hive (1.25)
+      mobilize-hdfs (= 1.25)
+    mobilize-ssh (1.25)
+      mobilize-base (= 1.25)
       net-scp
       net-ssh
       net-ssh-gateway
@@ -162,7 +162,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
-    unf (0.1.0)
+    unf (0.1.1)
       unf_ext
     unf_ext (0.0.6)
     vegas (0.1.11)
@@ -178,7 +178,7 @@ PLATFORMS
 DEPENDENCIES
   capistrano (= 2.13.5)
   capistrano-ext (= 1.2.1)
-  mobilize-hive (= 1.24)
+  mobilize-hive (= 1.25)
   mobilize-nozzle!
   rvm-capistrano (= 1.2.7)
   whenever (= 0.7.0)
