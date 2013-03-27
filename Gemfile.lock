@@ -82,11 +82,11 @@ GEM
       popen4 (= 0.1.2)
       rake
       resque (= 1.24.0)
-    mobilize-hdfs (1.29)
-      mobilize-ssh (= 1.29)
-    mobilize-hive (1.29)
-      mobilize-hdfs (= 1.29)
-    mobilize-ssh (1.29)
+    mobilize-hdfs (1.291)
+      mobilize-ssh (= 1.291)
+    mobilize-hive (1.291)
+      mobilize-hdfs (= 1.291)
+    mobilize-ssh (1.291)
       mobilize-base (= 1.29)
       net-scp
       net-ssh
@@ -178,7 +178,7 @@ PLATFORMS
 DEPENDENCIES
   capistrano (= 2.13.5)
   capistrano-ext (= 1.2.1)
-  mobilize-hive (= 1.29)
+  mobilize-hive (= 1.291)
   mobilize-nozzle!
   rvm-capistrano (= 1.2.7)
   whenever (= 0.7.0)
