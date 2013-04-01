@@ -20,7 +20,7 @@ end
 
 every '1,6,11,16,21,26,31,36,41,46,51,56 * * * *' do
   #make Jobtracker is alive
-  rake "mobilize_base:start"
+  rake "mobilize_base:start_jobtracker"
 end
 
   #2 min block reserved for kill idle workers
@@ -39,7 +39,7 @@ end
 
 every '6 * * * *' do
   #make Jobtracker is fresh and under memory limit
-  rake "mobilize_base:restart"
+  rake "mobilize_base:restart_jobtracker"
 end
 
 #
