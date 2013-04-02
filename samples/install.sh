@@ -34,6 +34,7 @@ sudo apt-get install redis-server
 source /home/<owner_user_name>/.rvm/scripts/rvm
 rvm gemset create mobilize-server
 rvm gemset use mobilize-server --default
+gem install bundler
 #make sure you configure your capfile so that the <owner_user_name> user
 #is ready to go and deploy to your <application_dir> directory:
 

@@ -53,7 +53,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.22)
-    mobilize-base (1.293)
+    mobilize-base (1.294)
       actionmailer (= 3.1.1)
       bson (= 1.6.1)
       bson_ext (= 1.6.1)
@@ -63,8 +63,8 @@ GEM
       popen4 (= 0.1.2)
       rake
       resque (= 1.24.0)
-    mobilize-ssh (1.293)
-      mobilize-base (= 1.293)
+    mobilize-ssh (1.294)
+      mobilize-base (= 1.294)
       net-scp
       net-ssh
       net-ssh-gateway
@@ -148,6 +148,6 @@ PLATFORMS
 DEPENDENCIES
   capistrano (= 2.13.5)
   capistrano-ext (= 1.2.1)
-  mobilize-ssh (= 1.293)
+  mobilize-ssh (= 1.294)
   rvm-capistrano (= 1.2.7)
   whenever (= 0.7.0)
