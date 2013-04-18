@@ -49,6 +49,13 @@ namespace :config do
   end
 end
 
+namespace :ssh do
+  task :chmod_keys do
+    #sets all ssh keys to 0400
+    run "cd #{release_path} && find config/mobilize -type f | xargs grep -l \"BEGIN.*PRIVATE KEY\" | xargs chmod 0400"
+  end
+end
+
 namespace :whenever do
   desc "Update crontab"
   task :update_crontab do
