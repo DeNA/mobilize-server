@@ -1,11 +1,11 @@
 GIT
   remote: git@github.ngmoco.com:Ngpipes/mobilize-nozzle.git
-  revision: 054df667d825b78681aa8213a180f2b0c6edcd7d
-  ref: 054df66
+  revision: 889a489349ae6b5602e966df92cd86543a4b718f
+  ref: 889a489
   specs:
-    mobilize-nozzle (1.33)
+    mobilize-nozzle (1.351)
       mechanize (= 2.6.0)
-      mobilize-base (= 1.35)
+      mobilize-base (= 1.351)
 
 GEM
   remote: https://rubygems.org/
@@ -72,7 +72,7 @@ GEM
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (>= 0.0.9, < 0.2)
     mime-types (1.23)
-    mobilize-base (1.35)
+    mobilize-base (1.351)
       actionmailer (= 3.1.1)
       bson (= 1.8.4)
       bson_ext (= 1.8.4)
@@ -82,12 +82,12 @@ GEM
       popen4 (= 0.1.2)
       rake
       resque (= 1.24.0)
-    mobilize-hdfs (1.35)
-      mobilize-ssh (= 1.35)
-    mobilize-hive (1.35)
-      mobilize-hdfs (= 1.35)
-    mobilize-ssh (1.35)
-      mobilize-base (= 1.35)
+    mobilize-hdfs (1.351)
+      mobilize-ssh (= 1.351)
+    mobilize-hive (1.351)
+      mobilize-hdfs (= 1.351)
+    mobilize-ssh (1.351)
+      mobilize-base (= 1.351)
       net-scp
       net-ssh
       net-ssh-gateway
@@ -179,7 +179,7 @@ PLATFORMS
 DEPENDENCIES
   capistrano (= 2.13.5)
   capistrano-ext (= 1.2.1)
-  mobilize-hive (= 1.35)
+  mobilize-hive (= 1.351)
   mobilize-nozzle!
   rvm-capistrano (= 1.2.7)
   whenever (= 0.7.0)

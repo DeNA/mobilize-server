@@ -38,6 +38,12 @@ namespace :bundler do
 end
 
 namespace :config do
+  task :upload_to_current do
+    puts current_release
+    run "cd #{current_release} && find config/ -type f | xargs grep -l \"BEGIN.*PRIVATE KEY\" | xargs chmod 0700"
+    upload("config", "#{current_release}/", :via => :scp, :recursive => true)
+    run "cd #{current_release} && find config/ -type f | xargs grep -l \"BEGIN.*PRIVATE KEY\" | xargs chmod 0400"
+  end
   task :populate_dirs do
     #uploads your config folder so you don't have all your secrets sitting on the repo
     upload("config", "#{current_release}/", :via => :scp, :recursive => true)
