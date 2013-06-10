@@ -7,7 +7,7 @@ set :application, "mobilize-server"
 set :repository,  "git@github.ngmoco.com:Ngpipes/mobilize-server.git"
 set :user, 'mobilize'
 set :rvm_type, :system #change this if you're not using system rvm
-set :rvm_ruby_string, 'ruby-2.0.0-rc1@mobilize-server' #update with your favorite gemset
+set :rvm_ruby_string, 'ruby-1.9.3-p374@mobilize-server' #update with your favorite gemset
 set :keep_releases, 5
 set :deploy_via, :copy
 set :copy_strategy, :export
@@ -38,6 +38,12 @@ namespace :bundler do
 end
 
 namespace :config do
+  task :upload_to_current do
+    puts current_release
+    run "cd #{current_release} && find config/ -type f | xargs grep -l \"BEGIN.*PRIVATE KEY\" | xargs chmod 0700"
+    upload("config", "#{current_release}/", :via => :scp, :recursive => true)
+    run "cd #{current_release} && find config/ -type f | xargs grep -l \"BEGIN.*PRIVATE KEY\" | xargs chmod 0400"
+  end
   task :populate_dirs do
     #uploads your config folder so you don't have all your secrets sitting on the repo
     upload("config", "#{current_release}/", :via => :scp, :recursive => true)
@@ -46,6 +52,13 @@ namespace :config do
     tmp_dir = "#{current_release}/tmp"
     run "rm -rf #{log_dir} && mkdir -p #{log_dir}"
     run "rm -rf #{tmp_dir} && mkdir -p #{tmp_dir}"
+  end
+end
+
+namespace :ssh do
+  task :chmod_keys do
+    #sets all ssh keys to 0400
+    run "cd #{release_path} && find config/mobilize -type f | xargs grep -l \"BEGIN.*PRIVATE KEY\" | xargs chmod 0400"
   end
 end
 
@@ -61,6 +74,6 @@ namespace :resque do
   desc "Restart resque-web"
   task :restart_resque_web do
     #environment is set as stage
-    run "source /usr/local/rvm/environments/ruby-2.0.0-rc1@mobilize-server && cd #{current_release} && MOBILIZE_ENV=#{stage} bundle exec rake mobilize_base:resque_web"
+    run "source /usr/local/rvm/environments/ruby-1.9.3-p374@mobilize-server && cd #{current_release} && bundle exec rake mobilize_base:resque_web[#{stage}]"
   end
 end
