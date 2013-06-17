@@ -4,7 +4,7 @@ require 'capistrano/ext/multistage'
 #Uncomment to set a gateway
 #set :gateway, gateway@gatewayhost.com"
 set :application, "mobilize-server"
-set :repository,  "git@github.ngmoco.com:Ngpipes/mobilize-server.git"
+set :repository,  "git@github.com:DeNA/mobilize-server.git"
 set :user, 'mobilize'
 set :rvm_type, :system #change this if you're not using system rvm
 set :rvm_ruby_string, 'ruby-1.9.3-p374@mobilize-server' #update with your favorite gemset
