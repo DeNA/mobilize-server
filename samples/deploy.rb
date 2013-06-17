@@ -74,6 +74,6 @@ namespace :resque do
   desc "Restart resque-web"
   task :restart_resque_web do
     #environment is set as stage
-    run "source /usr/local/rvm/environments/ruby-1.9.3-p374@mobilize-server && cd #{current_release} && bundle exec rake mobilize_base:resque_web[#{stage}]"
+    run "source /usr/local/rvm/environments/ruby-1.9.3-p374@mobilize-server && cd #{current_release} && bundle exec rake mobilize:resque_web[#{stage}]"
   end
 end
