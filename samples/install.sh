@@ -30,7 +30,7 @@ sudo su <owner_user_name>
 #      password: <owner_user_password>
 sudo apt-get install redis-server
 #rvm as of 2013-03-30
-\curl -L https://get.rvm.io | bash -s stable --autolibs=enabled --ruby=1.9.3
+\curl -L https://get.rvm.io | bash -s stable --autolibs=enabled --ruby=1.9.3-p374
 source /home/<owner_user_name>/.rvm/scripts/rvm
 rvm gemset create mobilize-server
 rvm gemset use mobilize-server --default
