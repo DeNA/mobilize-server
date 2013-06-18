@@ -50,15 +50,8 @@ cap production deploy
 #hopefully everything is fantastic
 #possibly you need to restart the resque-web, so do
 #from EC2 machine:
-cd <application_dir> && MOBILIZE_ENV=production bundle exec rake mobilize_base:resque_web
-cd <application_dir> && MOBILIZE_ENV=production bundle console
-#now you're in the console.
-#irb> irb Mobilize
-#The crontabs are running but if you're feeling impatient,
-#<irb Mobilize>
-#  Jobtracker.restart_workers!
-#  Jobtracker.start
-#</irb Mobilize>
+cd <application_dir> && bundle exec rake mobilize:resque_web[production]
+
 #this will make sure traffic from port 80 is routed to resque-web
 sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j     REDIRECT --to-ports 8282
 
