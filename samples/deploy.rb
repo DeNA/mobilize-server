@@ -6,7 +6,6 @@ require 'capistrano/ext/multistage'
 set :application, "mobilize-server"
 set :repository,  "git@github.com:DeNA/mobilize-server.git"
 set :user, 'mobilize'
-set :rvm_type, :system #change this if you're not using system rvm
 set :rvm_ruby_string, 'ruby-1.9.3-p374@mobilize-server' #update with your favorite gemset
 set :keep_releases, 5
 set :deploy_via, :copy
