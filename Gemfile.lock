@@ -1,11 +1,11 @@
 GIT
   remote: git@github.ngmoco.com:Ngpipes/mobilize-nozzle.git
-  revision: 7a901140ecede738e240bd5965592cfa558044c4
-  ref: 7a90114
+  revision: 2a443fde88f1dd2130fecf35dc94083e66204d77
+  ref: 2a443fd
   specs:
-    mobilize-nozzle (1.366)
+    mobilize-nozzle (1.367)
       mechanize (= 2.6.0)
-      mobilize-base (= 1.366)
+      mobilize-base (= 1.367)
 
 GEM
   remote: https://rubygems.org/
@@ -73,7 +73,7 @@ GEM
       webrobots (>= 0.0.9, < 0.2)
     mime-types (1.23)
     mini_portile (0.5.0)
-    mobilize-base (1.366)
+    mobilize-base (1.367)
       actionmailer (= 3.1.1)
       bson (= 1.8.4)
       bson_ext (= 1.8.4)
@@ -83,12 +83,12 @@ GEM
       popen4 (= 0.1.2)
       rake
       resque (= 1.24.0)
-    mobilize-hdfs (1.366)
-      mobilize-ssh (= 1.366)
-    mobilize-hive (1.366)
-      mobilize-hdfs (= 1.366)
-    mobilize-ssh (1.366)
-      mobilize-base (= 1.366)
+    mobilize-hdfs (1.367)
+      mobilize-ssh (= 1.367)
+    mobilize-hive (1.367)
+      mobilize-hdfs (= 1.367)
+    mobilize-ssh (1.367)
+      mobilize-base (= 1.367)
       net-scp
       net-ssh
       net-ssh-gateway
@@ -118,9 +118,9 @@ GEM
       mini_portile (~> 0.5.0)
     ntlm-http (0.1.1)
     oauth (0.4.7)
-    oauth2 (0.9.1)
+    oauth2 (0.9.2)
       faraday (~> 0.8)
-      httpauth (~> 0.1)
+      httpauth (~> 0.2)
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       multi_xml (~> 0.5)
@@ -181,7 +181,7 @@ PLATFORMS
 DEPENDENCIES
   capistrano (= 2.13.5)
   capistrano-ext (= 1.2.1)
-  mobilize-hive (= 1.366)
+  mobilize-hive (= 1.367)
   mobilize-nozzle!
   rvm-capistrano (= 1.2.7)
   whenever (= 0.7.0)
