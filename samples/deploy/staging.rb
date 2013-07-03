@@ -1,4 +1,4 @@
-server "staging.host.com", :app, :primary => true
+role :app, "staging.host.com"
 set :whenever_environment, 'staging'
 after "deploy:update_code" do
   bundler.bundle_new_release
