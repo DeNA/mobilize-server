@@ -1,4 +1,4 @@
-server "production.host.com", :app, :primary => true
+role :app, "production.host.com"
 set :whenever_environment, 'production'
 after "deploy:update_code" do
   bundler.bundle_new_release
