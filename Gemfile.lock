@@ -82,7 +82,7 @@ GEM
       mime-types (~> 1.19)
       mongoid (~> 3.0)
     mono_logger (1.1.0)
-    moped (1.5.0)
+    moped (1.5.3)
     multi_json (1.7.7)
     multi_xml (0.5.4)
     multipart-post (1.2.0)
